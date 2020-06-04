@@ -1,0 +1,28 @@
+.lista{
+    
+display: flex;
+width: 100%;
+align-content: space-between;
+align-items: baseline;
+
+}
+
+.item{
+    
+    display: flex;
+    font-size: xx-large;
+    font-family: fantasy;
+    width: 100%;
+    text-align: right;
+    background-color: honeydew;
+    align-items: baseline;
+    justify-items: baseline;
+
+
+    justify-content: space-between;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
