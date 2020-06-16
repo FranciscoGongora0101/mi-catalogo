@@ -10,16 +10,15 @@ align-items: baseline;
 .elemento{
     
     display: flex;
-    font-size: xx-large;
+    font-size: x-large;
     font-family: fantasy;
-    width: 100%;
-    text-align: right;
+    width: 99%;
+    text-align: justify;
     background-color: honeydew;
-    align-items: baseline;
-    justify-items: baseline;
-
-
+    align-items: center;
+    justify-items: center ;
     justify-content: space-between;
+
     height: 80px;
     margin-bottom: 10px;
     margin-top: 5px;

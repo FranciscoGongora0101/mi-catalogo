@@ -1,9 +1,6 @@
-<div class="lista" *ngFor="let auto of autos">
-<div class = "elemento" >
+<div class = "elemento" *ngFor="let auto of autos" >
     <div class="fas fa-eye fa-2x" (click)="open(content, auto)"></div>
     {{auto.descripcion}}
-</div>
-
 </div>
 
 <ng-template #content let-modal>
