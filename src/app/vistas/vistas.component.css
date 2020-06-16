@@ -1,5 +1,5 @@
 
-.container {
+.contenedor {
     background-color: lightgreen;
     width: 100%;
     height: 70px;
@@ -8,24 +8,24 @@
     align-items: center;
     flex-direction: row;
 }
-.container > * {
+.contenedor > * {
     margin: 0 8px
   }
 
-.button{
+.boton{
     width: 50%;
     height: 50%;
     text-align: center;
     margin-right: 30px solid black;
 }
 
-.button2{
+.boton2{
   width: 50%;
   height: 50%;
   text-align: center;
   margin-left: 3px solid black;
 }
-.title{
+.titulo{
     font-size: larger;
     text-align: center;
 }
