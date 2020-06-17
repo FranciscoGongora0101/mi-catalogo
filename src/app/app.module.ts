@@ -9,6 +9,7 @@ import { ListComponent } from './list/list.component';
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TableComponent } from './table/table.component';
     VistasComponent,
     ListComponent,
     ModalComponent,
-    TableComponent
+    TableComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
