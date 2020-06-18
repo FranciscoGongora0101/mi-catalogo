@@ -8,6 +8,8 @@ import { AutosServiceService } from '../services/autos-service.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+  page = 1;
+  pageSize = 10;
   autoSeleccionado: Automovil;
   autos: Automovil[];
 

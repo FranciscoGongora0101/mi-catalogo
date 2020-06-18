@@ -1,7 +1,9 @@
-<div class = "elemento" *ngFor="let auto of autos" >
+<div class = "elemento" *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
     <div class="fas fa-eye fa-2x" (click)="open(content, auto)"></div>
     {{auto.descripcion}}
 </div>
+
+<ngb-pagination [collectionSize]="autos.length" [(page)]="page" [pageSize]="pageSize" aria-label="Default pagination"></ngb-pagination>
 
 <ng-template #content let-modal>
     <div class="modal-header">
@@ -21,5 +23,6 @@
     </div>
 
   </ng-template>
+
   
 
