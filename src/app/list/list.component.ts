@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Automovil } from 'src/assets/models';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { AutosServiceService } from '../services/autos-service.service';
+import { ModalDetallesAutoComponent } from '../modal-detalles-auto/modal-detalles-auto.component';
 
 @Component({
   selector: 'app-list',
@@ -9,8 +10,8 @@ import { AutosServiceService } from '../services/autos-service.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  page = 1;
-  pageSize = 10;
+  page : number;
+  pageSize : number;
   autoSeleccionado: Automovil;
   autos: Automovil[];
 
@@ -18,30 +19,15 @@ export class ListComponent implements OnInit {
   constructor(private modalService: NgbModal, private autoService: AutosServiceService) { }
 
   ngOnInit() {
+    this.page=1;
+    this.pageSize=10;
     this.autoService.getAutos().subscribe((response)=>{
       this.autos = response.data;
     })
   }
 
-  open(content, auto: Automovil) {
-    this.autoSeleccionado= auto;
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+  open(auto: Automovil) {
+    const autoModal = this.modalService.open(ModalDetallesAutoComponent, { centered: true });
+    autoModal.componentInstance.autoSeleccionado = auto;
   }
 }
-
-
-

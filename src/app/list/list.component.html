@@ -1,28 +1,11 @@
-<div class = "elemento" *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
-    <div class="fas fa-eye fa-2x" (click)="open(content, auto)"></div>
+<ng-container *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
+<div class = "elemento">
+    <div class="fas fa-eye fa-2x" (click)="open(auto)"></div>
     {{auto.descripcion}}
 </div>
-
+</ng-container>
 <ngb-pagination [collectionSize]="autos.length" [(page)]="page" [pageSize]="pageSize" aria-label="Default pagination"></ngb-pagination>
 
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Detalles Automovil</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-        <div class="modulo">
-        <p>Marca: {{autoSeleccionado.marca}}</p>
-        <p>Submarca: {{autoSeleccionado.submarca}}</p>
-        <p>Modelos: {{autoSeleccionado.modelos}}</p>
-        <p>Descripcion: {{autoSeleccionado.descripcion}}</p>
-        <p>Fecha Registro: {{autoSeleccionado.fecha_registro}}</p>
-        </div>
-    </div>
-
-  </ng-template>
 
   
 
