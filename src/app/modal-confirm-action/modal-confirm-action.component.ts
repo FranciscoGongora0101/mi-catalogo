@@ -3,11 +3,11 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Automovil } from 'src/assets/models';
 
 @Component({
-  selector: 'app-modal-add-update',
-  templateUrl: './modal-add-update.component.html',
-  styleUrls: ['./modal-add-update.component.css']
+  selector: 'app-modal-confirm-action',
+  templateUrl: './modal-confirm-action.component.html',
+  styleUrls: ['./modal-confirm-action.component.css']
 })
-export class ModalAddUpdateComponent {
+export class ModalConfirmActionComponent{
 
   accion: string;
 

@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles-auto.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
+import { ModalConfirmActionComponent } from './modal-confirm-action/modal-confirm-action.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.com
     TableComponent,
     PageNotFoundComponent,
     ModalDetallesAutoComponent,
-    ModalAddUpdateComponent
+    ModalAddUpdateComponent,
+    ModalConfirmActionComponent
   ],
   imports: [
     BrowserModule,
