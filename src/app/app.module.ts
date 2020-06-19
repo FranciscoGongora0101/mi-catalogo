@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles-auto.component';
 import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 import { ModalConfirmActionComponent } from './modal-confirm-action/modal-confirm-action.component';
+import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
+import { RangoModelosDirective } from './directives/rango-modelos.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ModalConfirmActionComponent } from './modal-confirm-action/modal-confir
     PageNotFoundComponent,
     ModalDetallesAutoComponent,
     ModalAddUpdateComponent,
-    ModalConfirmActionComponent
+    ModalConfirmActionComponent,
+    ForbiddenNameDirective,
+    RangoModelosDirective
   ],
   imports: [
     BrowserModule,

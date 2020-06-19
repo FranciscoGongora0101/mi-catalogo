@@ -6,18 +6,33 @@
 </div>
 <div class="modal-body">
 
-   <form #formAutos= "ngForm">
+   <form #formAutos= "ngForm" (ngSubmit)="onSubmit()">
   
     <div class="form-group">
       <label for="marca">Marca</label>
       <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" 
-      [(ngModel)] = "auto.marca" name = "marca" >
+      [(ngModel)] = "auto.marca" required name = "marca" #marca="ngModel" minlength="4" 
+      appForbiddenName="Toyota">
+    </div>
+    <div *ngIf="marca.invalid && (marca.dirty || marca.touched)" >
+      <div *ngIf="marca.errors.minlength" class="alert alert-danger">
+        La marca debe tener un minimo de 4 caracteres</div>
+      <div *ngIf="marca.errors.required" class="alert alert-danger">
+        La marca es requerida</div>
+      <div *ngIf="marca.errors.forbiddenName" class="alert alert-danger">
+        La marca Toyota no es permitida</div>
     </div>
   
     <div class="form-group">
       <label for="submarca">Submarca</label>
       <input type="text" class="form-control" id="submarca" placeholder="Agrega la submarca"
-      [(ngModel)]= "auto.submarca" name="submarca">
+      [(ngModel)]= "auto.submarca" required minlength="4" name="submarca" #submarca="ngModel">
+    </div>
+    <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)" >
+      <div *ngIf="submarca.errors.minlength" class="alert alert-danger">
+        La submarca debe tener un minimo de 4 caracteres</div>
+        <div *ngIf="submarca.errors.required" class="alert alert-danger">
+          La submarca es requerida</div>
     </div>
   
     <div class="form-group">
@@ -25,17 +40,30 @@
       <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripcion"
       [(ngModel)]="auto.descripcion" name="descripcion">
     </div>
-  
-    <div class="form-group">
-      <label>Modelos</label>
-      <input type="text" disabled class="form-control" id="modelos" placeholder="Agrega el modelo" 
-      [(ngModel)]="auto.modelos" name="modelos">
 
+    <label>Modelos</label>
+      <div class="form-group col-md-3">
+        <label for="desde">desde</label>
+        <input type="range" min="2000" max="2020" class="form-control"
+        id="desde" [(ngModel)]="desde" name="desde" placeholder="desde" [appRangoModelos]=[desde,hasta] #modelodesde="ngModel">
+        <span>{{desde}}</span>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="hasta">hasta</label>
+        <input type="range" min="2000" max="2020" class="form-control"
+        id="hasta" [(ngModel)]="hasta" name="hasta" placeholder="hasta" [appRangoModelos]=[desde,hasta] #modelohasta="ngModel">
+        <span>{{hasta}}</span>
+      </div> 
+
+    <div *ngIf="modelohasta.invalid && (modelohasta.dirty || modelohasta.touched)">
+      <div *ngIf="modelohasta.errors.forbiddenModels" class="alert alert-danger">
+        El año inicial debe ser antes que el final</div>
     </div>
-  
+
+
+    
     <div class="modal-footer">
-      <button type="submit" class="btn btn-outline-dark"
-      (click)="activeModal.close(auto)">Guardar</button>
+      <button type="submit" class="btn btn-outline-dark" [disabled]="!formAutos.form.valid">Guardar</button>
     </div>      
 
    </form>
