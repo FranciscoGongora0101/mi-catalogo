@@ -14,15 +14,20 @@ export class ListComponent implements OnInit {
   pageSize : number;
   autoSeleccionado: Automovil;
   autos: Automovil[];
+  displayProgressBar : boolean;
 
   closeResult="";
   constructor(private modalService: NgbModal, private autoService: AutosServiceService) { }
 
   ngOnInit() {
+    this.displayProgressBar=true;
     this.page=1;
     this.pageSize=10;
     this.autoService.getAutos().subscribe((response)=>{
-      this.autos = response.data;
+      setTimeout(()=>{      
+        this.displayProgressBar=false;
+        this.autos = response.data;
+        }, 2500)
     })
   }
 

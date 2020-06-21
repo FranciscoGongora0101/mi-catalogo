@@ -16,13 +16,20 @@ export class TableComponent implements OnInit {
   autoSeleccionado: Automovil;
   autos: Automovil[];
 
+  displayProgressBar : boolean;
+
   constructor(private autoService: AutosServiceService, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.displayProgressBar=true;
     this.page=1;
     this.pageSize=10;
     this.autoService.getAutos().subscribe((response)=>{
+      setTimeout(()=>{      
+      this.displayProgressBar=false;
       this.autos = response.data;
+      }, 2500)
+
     })
   }
 
