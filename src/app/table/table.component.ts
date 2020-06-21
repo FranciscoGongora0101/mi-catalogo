@@ -15,6 +15,7 @@ export class TableComponent implements OnInit {
   pageSize : number;
   autoSeleccionado: Automovil;
   autos: Automovil[];
+  searchText; 
 
   displayProgressBar : boolean;
 
@@ -28,7 +29,7 @@ export class TableComponent implements OnInit {
       setTimeout(()=>{      
       this.displayProgressBar=false;
       this.autos = response.data;
-      }, 2500)
+      }, 2000)
 
     })
   }

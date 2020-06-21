@@ -6,7 +6,8 @@
 
 <ng-container *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" >
 <div class = "elemento">
-    <div class="fas fa-eye fa-2x" (click)="open(auto)"></div>
+  <div class="icon">
+  <div class="fas fa-eye fa-2x" (click)="open(auto)"></div></div>
     {{auto.descripcion}}
 </div>
 </ng-container>

@@ -33,3 +33,6 @@ align-items: baseline;
     font-size: small;
 }
 
+.icon:hover{
+    cursor: pointer;
+}

@@ -27,7 +27,7 @@ export class ListComponent implements OnInit {
       setTimeout(()=>{      
         this.displayProgressBar=false;
         this.autos = response.data;
-        }, 2500)
+        }, 2000)
     })
   }
 
