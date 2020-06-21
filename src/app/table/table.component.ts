@@ -22,7 +22,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     this.displayProgressBar=true;
-    this.page=1;
+    this.page= +sessionStorage.getItem('currentPage');
     this.pageSize=10;
     this.autoService.getAutos().subscribe((response)=>{
       setTimeout(()=>{      
@@ -40,8 +40,11 @@ export class TableComponent implements OnInit {
 
     autoModal.result.then(
       (auto)=>{
-        this.autoService.updateAutos(auto).subscribe(response => console.log(response)
-        )
+        this.autoService.updateAutos(auto).subscribe(value => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+
+        });
       },
       (reason) => {
         console.log(reason)
@@ -55,8 +58,10 @@ export class TableComponent implements OnInit {
 
     autoModal.result.then(
       (auto)=>{
-        this.autoService.addAutos(auto).subscribe(response => console.log(response)
-        )
+        this.autoService.addAutos(auto).subscribe(value => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+        });
       },
       (reason) => {
         console.log(reason)
@@ -70,11 +75,10 @@ export class TableComponent implements OnInit {
 
     autoModal.result.then(
       (autoTemp)=>{
-        this.autoService.deleteAutos(autoTemp).subscribe(response => {
-          console.log("Respuesta cuando se termina de eliminar un auto")
-          console.log(response)
-
-        })
+        this.autoService.deleteAutos(autoTemp).subscribe(value => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();
+        });
       },
       (reason) => {
         console.log(reason)
