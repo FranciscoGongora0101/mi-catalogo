@@ -22,7 +22,7 @@ class="btn btn-dark">Agregar <i class="fa fa-plus"></i></button>
       <td>{{ auto._id }}</td>
       <td>{{ auto.marca }}</td>
       <td>{{ auto.submarca }}</td>
-      <td>{{ auto.modelos }}</td>
+      <td>{{ auto.modelos | formatoModelos }}</td>
       <td>{{ auto.descripcion }}</td>
       <td (click)="openModalConfirmarEliminar(auto)"><i class="fas fa-trash-alt"></i></td>
       <td (click)="openModalEditar(auto)"><i class="fas fa-edit"></i></td>
