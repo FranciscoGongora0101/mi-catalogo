@@ -18,6 +18,7 @@ import { ModalConfirmActionComponent } from './modal-confirm-action/modal-confir
 import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
 import { RangoModelosDirective } from './directives/rango-modelos.directive';
 import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
     ModalConfirmActionComponent,
     ForbiddenNameDirective,
     RangoModelosDirective,
-    FormatoModelosPipe
+    FormatoModelosPipe,
+    LogComponent
   ],
   imports: [
     BrowserModule,
